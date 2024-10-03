@@ -2,10 +2,12 @@ import "./App.css";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import List from "./components/List";
+import Alert from "./components/Alert";
 
 function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState([]);
+  const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
   const submitData = (e) => {
     e.preventDefault();
@@ -20,6 +22,7 @@ function App() {
   return (
     <section className="container">
       <h1>Todo List</h1>
+      {alert.show && <Alert />}
       <form className="form-group" onSubmit={submitData}>
         <div className="form-control">
           <input
@@ -33,7 +36,7 @@ function App() {
           </button>
         </div>
       </form>
-      <section className="list-component" >
+      <section className="list-component">
         {list.map((data, index) => {
           return <List key={index} {...data} />;
         })}
