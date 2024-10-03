@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import List from "./components/List";
 
 function App() {
   const [name, setName] = useState("");
@@ -12,8 +13,8 @@ function App() {
       id: uuidv4(),
       title: name,
     };
-    setList([...list,newItem]);
-    setName('')
+    setList([...list, newItem]);
+    setName("");
   };
 
   return (
@@ -32,6 +33,11 @@ function App() {
           </button>
         </div>
       </form>
+      <section className="list-component" >
+        {list.map((data, index) => {
+          return <List key={index} {...data} />;
+        })}
+      </section>
     </section>
   );
 }
