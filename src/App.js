@@ -1,11 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <section className="container">
       <h1>Todo List</h1>
-    </div>
+      <form className='form-group'>
+        <input type="text" className='text-input' />
+        <button type='submit' className='submit-btn'>add list</button>
+      </form>
+    </section>
   );
 }
 
