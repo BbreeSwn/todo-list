@@ -11,18 +11,25 @@ function App() {
 
   const submitData = (e) => {
     e.preventDefault();
-    const newItem = {
-      id: uuidv4(),
-      title: name,
-    };
-    setList([...list, newItem]);
-    setName("");
+if(!name){
+  //show alert
+  setAlert({show:true,msg:'pleast enter your detail🤓',type:'error'})
+}else{
+  const newItem = {
+    id: uuidv4(),
+    title: name,
   };
+  setList([...list, newItem]);
+  setName("")
+  setAlert({show:true,msg:'Completed 🤓',type:'success'})
+}
+  };
+
 
   return (
     <section className="container">
       <h1>Todo List</h1>
-      {alert.show && <Alert />}
+      {alert.show && <Alert {...alert} />}
       <form className="form-group" onSubmit={submitData}>
         <div className="form-control">
           <input
