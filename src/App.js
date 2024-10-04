@@ -8,7 +8,7 @@ function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
-  const [editId, setEditId] = useState("");
+  const [editId, setEditId] = useState(null);
 
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
@@ -22,6 +22,17 @@ function App() {
         msg: "pleast enter your detail🤓",
         type: "error",
       });
+    } else if (isEdit && name) {
+      // update Data
+      const result = list.map((item) => {
+        if (item.id === editId) {
+          return { ...item, title: name };
+        }
+        return item;
+      });
+      setList(result);
+      setName('')
+      setIsEdit(false)
     } else {
       const newItem = {
         id: uuidv4(),
