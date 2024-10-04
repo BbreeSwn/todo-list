@@ -1,0 +1,108 @@
+body{
+    background: #60a6b4;
+}
+h1{
+    font-size: 3rem;
+    line-height: 1.2;
+    text-align: center;
+
+}
+.container{
+    background:white;
+    padding: 1.2rem;
+    width: 90vw;
+    margin: 8rem auto;
+    max-width: 35rem;
+    border-radius: 0.25rem;
+}
+.form-control{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.text-input{
+    padding: 0.25rem;
+    font-size: 1.2rem;
+    background: lightcyan;
+    flex: 1 0 auto;
+    border-radius: 2px;
+    border-color: #87c7d4;
+}
+
+.submit-btn{
+    background-color: rgb(36, 188, 122) ;
+    cursor: pointer;
+    color: white;
+    font-weight: 800;
+    border: transparent;
+    font-size: 1.2rem;
+    }
+.submit-btn:hover{
+        background-color: rgb(64, 222, 153)
+}
+.list-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding: 0.25rem 1rem;
+    background-color: #f7f7f7;
+    box-shadow: 0 1px 3px rgba(177, 176, 176, 0.7);
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+}
+.alert{
+    margin-bottom: 1.5rem;
+    height: 1.25rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+}
+.alert.error{
+    background: rgb(255, 90, 90);
+    color:white
+}
+.alert.success{
+    background: rgb(88, 246, 117);
+    color:white
+}
+
+.button-container button {
+    border: none;
+    background: transparent;
+    font-size: 1.20rem;
+    margin: 3px;
+}
+.button-container button:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+
+@media  (max-width: 790px) {
+    .container{
+    width: 80vw;
+    }
+    h1{
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+    .text-input{
+        padding: 0.15rem;
+        font-size: 1rem;
+        background: lightcyan;
+        flex: 1 0 auto;
+    }
+    .submit-btn{
+        font-weight: 400;
+    }
+    .list-item{
+        font-size: 1rem;
+    }
+    .button-container button {
+
+        font-size: 1rem;
+
+    }
+
+}
