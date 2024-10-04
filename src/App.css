@@ -18,13 +18,17 @@ h1{
 .form-control{
     display: flex;
     justify-content: center;
+    gap: 5px;
 }
 .text-input{
     padding: 0.25rem;
     font-size: 1.2rem;
     background: lightcyan;
     flex: 1 0 auto;
+    border-radius: 2px;
+    border-color: #87c7d4;
 }
+
 .submit-btn{
     background-color: rgb(36, 188, 122) ;
     cursor: pointer;
