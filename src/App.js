@@ -7,30 +7,46 @@ import Alert from "./components/Alert";
 function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState([]);
+  const [isEdit, setIsEdit] = useState(false);
+  const [editId, setEditId] = useState("");
+
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
+  //add
   const submitData = (e) => {
     e.preventDefault();
-if(!name){
-  //show alert
-  setAlert({show:true,msg:'pleast enter your detail🤓',type:'error'})
-}else{
-  const newItem = {
-    id: uuidv4(),
-    title: name,
-  };
-  setList([...list, newItem]);
-  setName("")
-  setAlert({show:true,msg:'Completed 🤓',type:'success'})
-}
+    if (!name) {
+      //show alert
+      setAlert({
+        show: true,
+        msg: "pleast enter your detail🤓",
+        type: "error",
+      });
+    } else {
+      const newItem = {
+        id: uuidv4(),
+        title: name,
+      };
+      setList([...list, newItem]);
+      setName("");
+      setAlert({ show: true, msg: "Completed 🤓", type: "success" });
+    }
   };
 
-  const removeItem=(id)=>{
-    const result = list.filter((item)=>item.id !== id)
-    setList(result)
-    setAlert({show:true,msg:'Deleted!! 👌🏻',type:'success'})
-  }
+  //delete
+  const removeItem = (id) => {
+    const result = list.filter((item) => item.id !== id);
+    setList(result);
+    setAlert({ show: true, msg: "Deleted!! 👌🏻", type: "success" });
+  };
 
+  //edit
+  const editItem = (id) => {
+    setIsEdit(true);
+    setEditId(id);
+    const searchItem = list.find((item) => item.id === id);
+    setName(searchItem.title);
+  };
 
   return (
     <section className="container">
@@ -45,13 +61,20 @@ if(!name){
             value={name}
           />
           <button type="submit" className="submit-btn">
-            add list
+            {isEdit ? "update" : "add job"}
           </button>
         </div>
       </form>
       <section className="list-component">
         {list.map((data, index) => {
-          return <List key={index} {...data} removeItem={removeItem} />;
+          return (
+            <List
+              key={index}
+              {...data}
+              removeItem={removeItem}
+              editItem={editItem}
+            />
+          );
         })}
       </section>
     </section>
