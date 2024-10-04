@@ -25,6 +25,12 @@ if(!name){
 }
   };
 
+  const removeItem=(id)=>{
+    const result = list.filter((item)=>item.id !== id)
+    setList(result)
+    setAlert({show:true,msg:'Deleted!! 👌🏻',type:'success'})
+  }
+
 
   return (
     <section className="container">
@@ -45,7 +51,7 @@ if(!name){
       </form>
       <section className="list-component">
         {list.map((data, index) => {
-          return <List key={index} {...data} />;
+          return <List key={index} {...data} removeItem={removeItem} />;
         })}
       </section>
     </section>
